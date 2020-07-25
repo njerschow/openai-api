@@ -23,7 +23,6 @@ class OpenAI {
             top_p: opts.topP,
             n: opts.n,
             stream: opts.stream,
-            logprobs: opts.logprobs,
             stop: opts.stop
         };
         return axios.post(url, data, reqOpts);
