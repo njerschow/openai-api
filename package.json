@@ -1,0 +1,25 @@
+{
+  "name": "openai-api",
+  "version": "1.0.0",
+  "description": "A tiny client module for the openAI API",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --use_strict"
+  },
+  "keywords": [
+    "openai",
+    "gpt-3"
+  ],
+  "author": "Nikita Jerschow",
+  "license": "ISC",
+  "repository": {
+    "type" : "git",
+    "url" : ""
+  }
+  "dependencies": {
+    "axios": "^0.19.2"
+  },
+  "devDependencies": {
+    "mocha": "^8.0.1"
+  }
+}
