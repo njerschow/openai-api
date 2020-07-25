@@ -14,8 +14,8 @@
   "license": "ISC",
   "repository": {
     "type" : "git",
-    "url" : ""
-  }
+    "url" : "https://github.com/Njerschow/openai-api"
+  },
   "dependencies": {
     "axios": "^0.19.2"
   },
