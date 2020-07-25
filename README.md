@@ -9,7 +9,6 @@ If you have any ideas on how to improve the library feel free to let me know as 
 You can also visit the Issue tracker for more information or open a new issue.
 
 This project is not affiliated with OpenAI and was written purely out of interest.
-############
 
 ## Installation
 
