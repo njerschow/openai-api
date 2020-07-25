@@ -12,7 +12,7 @@ describe('basic openai api methods', function () {
     const openai = new OpenAI(api_key);
 
     it ('handle simple completion', function (done) {
-        openai.create({
+        openai.complete({
             prompt: "this is a test",
             maxTokens: 5
         }).then((result) => {

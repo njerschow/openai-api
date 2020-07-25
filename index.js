@@ -29,7 +29,7 @@ class OpenAI {
         return axios.post(url, data, reqOpts);
     }
 
-    create = function (opts) {
+    complete = function (opts) {
         return this.__send_request(opts);
     }
 
