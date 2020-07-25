@@ -34,7 +34,7 @@ const openai = new OpenAI(OPEN_AI_API_KEY);
     stop: '\n'
   });
   
-  console.log(gptResponse);
+  console.log(gptResponse.data);
 })();
 
 (async () => {
@@ -44,6 +44,6 @@ const openai = new OpenAI(OPEN_AI_API_KEY);
     query: "the president"
   });
   
-  console.log(gptResponse);
+  console.log(gptResponse.data);
 })();
 ```
