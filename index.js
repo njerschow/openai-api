@@ -18,10 +18,10 @@ class OpenAI {
         };
         const data = {
             prompt: opts.prompt,
-            max_tokens: opts.maxTokens,
-            temperature: opts.temperature,
-            top_p: opts.topP,
-            n: opts.n,
+            max_tokens: Number(opts.maxTokens),
+            temperature: Number(opts.temperature),
+            top_p: Number(opts.topP),
+            n:  Number(opts.n),
             stream: opts.stream,
             stop: opts.stop
         };
