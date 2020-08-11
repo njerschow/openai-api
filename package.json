@@ -10,7 +10,8 @@
     "openai",
     "gpt-3",
     "open",
-    "ai"
+    "ai",
+    "node"
   ],
   "author": "Nikita Jerschow",
   "license": "ISC",

@@ -1,7 +1,7 @@
 # openai-api
 
 ## Overview
-This package is a tiny wrapper for the openAI API, if you find any issue please feel free to message me or open a PR :).
+This package is a tiny node wrapper for the openAI API, if you find any issue please feel free to message me or open a PR :).
 
 ### A few words from GPT-3 ###
 If you have any ideas on how to improve the library feel free to let me know as well!
