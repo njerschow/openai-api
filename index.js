@@ -8,6 +8,10 @@ class OpenAI {
         this.__api_key = api_key;
     }
 
+    __safe_cast = (number) => {
+        return number ? Number(number) : null;
+    } 
+
     __send_request = (opts) => {
         const url = config.completionURL(opts.engine);
         const reqOpts = {
@@ -18,10 +22,10 @@ class OpenAI {
         };
         const data = {
             prompt: opts.prompt,
-            max_tokens: Number(opts.maxTokens),
-            temperature: Number(opts.temperature),
-            top_p: Number(opts.topP),
-            n:  Number(opts.n),
+            max_tokens: this.__safe_cast(opts.maxTokens),
+            temperature: this.__safe_cast(opts.temperature),
+            top_p: this.__safe_cast(opts.topP),
+            n:  this.__safe_cast(opts.n),
             stream: opts.stream,
             stop: opts.stop
         };
