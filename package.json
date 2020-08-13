@@ -22,7 +22,8 @@
     "url": "https://github.com/Njerschow/openai-api"
   },
   "dependencies": {
-    "axios": "^0.19.2"
+    "axios": "^0.19.2",
+    "tokenizers": "^0.7.0"
   },
   "devDependencies": {
     "mocha": "^8.1.1"

@@ -38,5 +38,16 @@ describe('basic openai api methods', function () {
             console.error(err);
             assert.fail();
         })
-    })
+    });
+
+    it ('handle encoding', function (done) {
+        openai.encode('This is a test string blah blah blah').then((result) => {
+            assert.ok(result.length);
+            done();
+        })
+        .catch(err => {
+            console.error(err);
+            assert.fail();
+        })
+    });
 });

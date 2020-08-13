@@ -45,4 +45,10 @@ const openai = new OpenAI(OPEN_AI_API_KEY);
   
   console.log(gptResponse.data);
 })();
+
+(async () => {
+  await const encoded = openai.encode(str);
+  // to get the number of tokens of this string
+  console.log(encoded.length);
+})();
 ```
