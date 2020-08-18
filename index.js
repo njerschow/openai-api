@@ -8,11 +8,11 @@ class OpenAI {
         this._api_key = api_key;
     }
 
-    _safe_cast = (number) => {
+    _safe_cast(number) {
         return number ? Number(number) : null;
     } 
 
-    _send_request = (opts) => {
+    _send_request(opts) {
         const url = config.completionURL(opts.engine);
         const reqOpts = {
             headers: {
@@ -32,11 +32,11 @@ class OpenAI {
         return axios.post(url, data, reqOpts);
     }
 
-    complete = function (opts) {
+    complete(opts) {
         return this._send_request(opts);
     }
 
-    search = (opts) => {
+    search(opts) {
         const url = config.searchURL(opts.engine);
         const reqOpts = {
             headers: {
