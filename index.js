@@ -5,27 +5,27 @@ const config = require('./config'),
 
 class OpenAI {
     constructor(api_key) {
-        this.__api_key = api_key;
+        this._api_key = api_key;
     }
 
-    __safe_cast = (number) => {
+    _safe_cast = (number) => {
         return number ? Number(number) : null;
     } 
 
-    __send_request = (opts) => {
+    _send_request = (opts) => {
         const url = config.completionURL(opts.engine);
         const reqOpts = {
             headers: {
-                'Authorization': `Bearer ${this.__api_key}`,
+                'Authorization': `Bearer ${this._api_key}`,
                 'Content-Type': 'application/json'
             }
         };
         const data = {
             prompt: opts.prompt,
-            max_tokens: this.__safe_cast(opts.maxTokens),
-            temperature: this.__safe_cast(opts.temperature),
-            top_p: this.__safe_cast(opts.topP),
-            n:  this.__safe_cast(opts.n),
+            max_tokens: this._safe_cast(opts.maxTokens),
+            temperature: this._safe_cast(opts.temperature),
+            top_p: this._safe_cast(opts.topP),
+            n:  this._safe_cast(opts.n),
             stream: opts.stream,
             stop: opts.stop
         };
@@ -33,14 +33,14 @@ class OpenAI {
     }
 
     complete = function (opts) {
-        return this.__send_request(opts);
+        return this._send_request(opts);
     }
 
     search = (opts) => {
         const url = config.searchURL(opts.engine);
         const reqOpts = {
             headers: {
-                'Authorization': `Bearer ${this.__api_key}`,
+                'Authorization': `Bearer ${this._api_key}`,
                 'Content-Type': 'application/json'
             }
         };
