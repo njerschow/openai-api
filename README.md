@@ -1,9 +1,11 @@
 # openai-api
 
 ## Overview
+
 This package is a tiny node wrapper for the openAI API, if you find any issue please feel free to message me or open a PR :).
 
-### A few words from GPT-3 ###
+### A few words from GPT-3
+
 If you have any ideas on how to improve the library feel free to let me know as well!
 
 You can also visit the Issue tracker for more information or open a new issue.
@@ -32,7 +34,7 @@ const openai = new OpenAI(OPEN_AI_API_KEY);
     stream: false,
     stop: ['\n', "testing"]in
   });
-  
+
   console.log(gptResponse.data);
 })();
 
@@ -42,7 +44,7 @@ const openai = new OpenAI(OPEN_AI_API_KEY);
     documents: ["White House", "hospital", "school"],
     query: "the president"
   });
-  
+
   console.log(gptResponse.data);
 })();
 ```
