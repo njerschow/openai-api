@@ -28,6 +28,9 @@ const openai = new OpenAI(OPEN_AI_API_KEY);
     maxTokens: 5,
     temperature: 0.9,
     topP: 1,
+    presence_penalty: 0,
+    frequency_penalty: 0,
+    best_of: 1,
     n: 1,
     stream: false,
     stop: ['\n', "testing"]in

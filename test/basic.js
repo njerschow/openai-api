@@ -16,6 +16,8 @@ describe('basic openai api methods', function () {
             prompt: "this is a test",
             maxTokens: 5,
             temperature: 0.9,
+            frequencyPenalty: 0,
+            bestOf: 1,
             stop: ["\n", "lol"]
         }).then((result) => {
             assert.ok(result);
