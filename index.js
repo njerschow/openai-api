@@ -25,6 +25,9 @@ class OpenAI {
             max_tokens: this._safe_cast(opts.maxTokens),
             temperature: this._safe_cast(opts.temperature),
             top_p: this._safe_cast(opts.topP),
+            presence_penalty: this._safe_cast(opts.presencePenalty),
+            frequency_penalty: this._safe_cast(opts.frequencyPenalty),
+            best_of: this._safe_cast(opts.bestOf),
             n:  this._safe_cast(opts.n),
             stream: opts.stream,
             stop: opts.stop
