@@ -33,7 +33,7 @@ const openai = new OpenAI(OPEN_AI_API_KEY);
     best_of: 1,
     n: 1,
     stream: false,
-    stop: ['\n', "testing"]in
+    stop: ['\n', "testing"]
   });
   
   console.log(gptResponse.data);
