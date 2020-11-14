@@ -29,6 +29,7 @@ class OpenAI {
             this._construct_parameter("stream", opts.stream),
             this._construct_parameter("stop", opts.stop),
             this._construct_parameter("max_tokens", this._safe_cast(opts.maxTokens)),
+            this._construct_parameter("temperature", this._safe_cast(opts.temperature)),
             this._construct_parameter("top_p", this._safe_cast(opts.topP)),
             this._construct_parameter("presence_penalty", this._safe_cast(opts.presencePenalty)),
             this._construct_parameter("frequency_penalty", this._safe_cast(opts.frequencyPenalty)),
