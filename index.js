@@ -35,6 +35,8 @@ class OpenAI {
             this._construct_parameter("frequency_penalty", this._safe_cast(opts.frequencyPenalty)),
             this._construct_parameter("best_of", this._safe_cast(opts.bestOf)),
             this._construct_parameter("n", this._safe_cast(opts.n)),
+            this._construct_parameter("logprobs", this._safe_cast(opts.logprobs)),
+            this._construct_parameter("echo", opts.echo),
         );
         return axios.post(url, data, reqOpts);
     }
