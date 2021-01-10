@@ -1,6 +1,6 @@
 {
   "name": "openai-api",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "A tiny client module for the openAI API",
   "main": "index.js",
   "scripts": {
