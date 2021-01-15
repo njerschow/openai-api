@@ -17,35 +17,31 @@ This project is not affiliated with OpenAI and was written purely out of interes
 ## Usage
 
 ```js
-const OpenAI = require('openai-api');
-const OPEN_AI_API_KEY = ####################
-const openai = new OpenAI(OPEN_AI_API_KEY);
-
 (async () => {
-  await const gptResponse = openai.complete({
-    engine: 'davinci',
-    prompt: 'this is a test',
-    maxTokens: 5,
-    temperature: 0.9,
-    topP: 1,
-    presencePenalty: 0,
-    frequencyPenalty: 0,
-    bestOf: 1,
-    n: 1,
-    stream: false,
-    stop: ['\n', "testing"]
-  });
-  
-  console.log(gptResponse.data);
+    const gptResponse = await openai.complete({
+        engine: 'davinci',
+        prompt: 'this is a test',
+        maxTokens: 5,
+        temperature: 0.9,
+        topP: 1,
+        presencePenalty: 0,
+        frequencyPenalty: 0,
+        bestOf: 1,
+        n: 1,
+        stream: false,
+        stop: ['\n', "testing"]
+    });
+            
+    console.log(gptResponse.data);
 })();
-
+          
 (async () => {
-  await const gptResponse = openai.search({
-    engine: 'davinci',
-    documents: ["White House", "hospital", "school"],
-    query: "the president"
-  });
-  
-  console.log(gptResponse.data);
+    const gptResponse = await openai.search({
+        engine: 'davinci',
+        documents: ["White House", "hospital", "school"],
+        query: "the president"
+    });
+            
+    console.log(gptResponse.data);
 })();
 ```
