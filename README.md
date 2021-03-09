@@ -17,6 +17,10 @@ This project is not affiliated with OpenAI and was written purely out of interes
 ## Usage
 
 ```js
+const OpenAI = require('openai-api');
+const OPEN_AI_API_KEY = ####################
+const openai = new OpenAI(OPEN_AI_API_KEY);
+
 (async () => {
     const gptResponse = await openai.complete({
         engine: 'davinci',
