@@ -49,7 +49,7 @@ const openai = new OpenAI(OPENAI_API_KEY);
 ```
 
 #### Example of a successful completion response:
-```json
+```js
 {
     id: 'some-long-id',
     object: 'text_completion',
@@ -70,7 +70,7 @@ const openai = new OpenAI(OPENAI_API_KEY);
 
 The token limit is 2048 for completions using the OpenAI API. This method allows you to get the number of tokens in your prompt. This is done offline (no API call is made).
 
-```json
+```js
 openai.encode('This is an encoding test. Number of tokens is not necessarily the same as word count.').then((result) => {
      console.log("Number of tokens for string:" + result.length);
  });
