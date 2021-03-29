@@ -2,6 +2,7 @@
 
 const config = require('./config'),
     axios = require('axios');
+const { ByteLevelBPETokenizer } = require('tokenizers');
 
 class OpenAI {
     constructor(api_key) {
@@ -41,24 +42,33 @@ class OpenAI {
         return axios.post(url, data, reqOpts);
     }
 
-complete(opts) {
-    return this._send_request(opts);
-}
+    complete(opts) {
+        return this._send_request(opts);
+    }
 
-search(opts) {
-    const url = config.searchURL(opts.engine);
-    const reqOpts = {
-        headers: {
-            'Authorization': `Bearer ${this._api_key}`,
-            'Content-Type': 'application/json'
-        }
-    };
-    const data = {
-        documents: opts.documents,
-        query: opts.query
-    };
-    return axios.post(url, data, reqOpts);
-}
+    encode(str) {
+        return ByteLevelBPETokenizer.fromOptions({
+            vocabFile: './data/gpt2_vocab_file.json',
+            mergesFile: './data/gpt2_merges_file.txt',
+        }).then((tokenizer) => {
+            return tokenizer.encode(str)
+        })
+    }
+
+    search(opts) {
+        const url = config.searchURL(opts.engine);
+        const reqOpts = {
+            headers: {
+                'Authorization': `Bearer ${this._api_key}`,
+                'Content-Type': 'application/json'
+            }
+        };
+        const data = {
+            documents: opts.documents,
+            query: opts.query
+        };
+        return axios.post(url, data, reqOpts);
+    }
 }
 
 module.exports = OpenAI;
