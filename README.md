@@ -49,3 +49,5 @@ const openai = new OpenAI(OPEN_AI_API_KEY);
     console.log(gptResponse.data);
 })();
 ```
+
+
