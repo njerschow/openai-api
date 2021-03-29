@@ -18,8 +18,12 @@ This project is not affiliated with OpenAI and was written purely out of interes
 
 ```js
 const OpenAI = require('openai-api');
-const OPEN_AI_API_KEY = ####################
-const openai = new OpenAI(OPEN_AI_API_KEY);
+
+// Load your key from an environment variable or secret management service
+// (do not include your key directly in your code)
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+
+const openai = new OpenAI(OPENAI_API_KEY);
 
 (async () => {
     const gptResponse = await openai.complete({
