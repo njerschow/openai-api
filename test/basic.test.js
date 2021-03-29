@@ -44,9 +44,9 @@ describe('basic openai api methods', function () {
     });
 
     it ('handle encoding', function (done) {
-        openai.encode('This is a test string blah blah blah').then((result) => {
+        openai.encode('This is an encoding test. Number of tokens is not necessarily the same as word count.').then((result) => {
             expect(result.length).to.be.ok;
-            expect(result.length).to.be.eql(8);
+            expect(result.length).to.be.eql(18);
             done();
         })
         .catch(err => {
