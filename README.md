@@ -67,7 +67,7 @@ const openai = new OpenAI(OPENAI_API_KEY);
 ```
 
 ### Search API call
-```
+```js
 (async () => {
     const gptResponse = await openai.search({
         engine: 'davinci',
