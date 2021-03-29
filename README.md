@@ -16,6 +16,7 @@ This project is not affiliated with OpenAI and was written purely out of interes
 
 ## Usage
 
+### Initializing
 ```js
 const OpenAI = require('openai-api');
 
@@ -24,7 +25,10 @@ const OpenAI = require('openai-api');
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
 const openai = new OpenAI(OPENAI_API_KEY);
+```
 
+### Completion API call
+```js
 (async () => {
     const gptResponse = await openai.complete({
         engine: 'davinci',
@@ -42,7 +46,28 @@ const openai = new OpenAI(OPENAI_API_KEY);
             
     console.log(gptResponse.data);
 })();
-          
+```
+
+#### Example of a successful completion response:
+```json
+{
+    id: 'some-long-id',
+    object: 'text_completion',
+    created: 1616791508,
+    model: 'davinci:2020-05-03',
+    choices: [
+        {
+          text: " predicted text...",
+          index: 0,
+          logprobs: null,
+          finish_reason: 'length'
+        }
+    ]
+}
+```
+
+### Search API call
+```
 (async () => {
     const gptResponse = await openai.search({
         engine: 'davinci',
