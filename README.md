@@ -16,34 +16,66 @@ This project is not affiliated with OpenAI and was written purely out of interes
 
 ## Usage
 
+### Initializing
 ```js
 const OpenAI = require('openai-api');
-const OPEN_AI_API_KEY = ####################
-const openai = new OpenAI(OPEN_AI_API_KEY);
 
+// Load your key from an environment variable or secret management service
+// (do not include your key directly in your code)
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+
+const openai = new OpenAI(OPENAI_API_KEY);
+```
+
+### Completion API call
+```js
 (async () => {
-  await const gptResponse = openai.complete({
-    engine: 'davinci',
-    prompt: 'this is a test',
-    maxTokens: 5,
-    temperature: 0.9,
-    topP: 1,
-    n: 1,
-    stream: false,
-    stop: '\n'
-  });
-  
-  console.log(gptResponse.data);
+    const gptResponse = await openai.complete({
+        engine: 'davinci',
+        prompt: 'this is a test',
+        maxTokens: 5,
+        temperature: 0.9,
+        topP: 1,
+        presencePenalty: 0,
+        frequencyPenalty: 0,
+        bestOf: 1,
+        n: 1,
+        stream: false,
+        stop: ['\n', "testing"]
+    });
+            
+    console.log(gptResponse.data);
 })();
+```
 
+#### Example of a successful completion response:
+```json
+{
+    id: 'some-long-id',
+    object: 'text_completion',
+    created: 1616791508,
+    model: 'davinci:2020-05-03',
+    choices: [
+        {
+          text: " predicted text...",
+          index: 0,
+          logprobs: null,
+          finish_reason: 'length'
+        }
+    ]
+}
+```
+
+### Search API call
+```js
 (async () => {
-  await const gptResponse = openai.search({
-    engine: 'davinci',
-    documents: ["White House", "hospital", "school"],
-    query: "the president"
-  });
-  
-  console.log(gptResponse.data);
+    const gptResponse = await openai.search({
+        engine: 'davinci',
+        documents: ["White House", "hospital", "school"],
+        query: "the president"
+    });
+            
+    console.log(gptResponse.data);
 })();
 
 (async () => {
@@ -52,3 +84,5 @@ const openai = new OpenAI(OPEN_AI_API_KEY);
   console.log(encoded.length);
 })();
 ```
+
+

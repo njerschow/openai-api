@@ -1,6 +1,6 @@
 {
   "name": "openai-api",
-  "version": "1.0.6",
+  "version": "1.0.18",
   "description": "A tiny client module for the openAI API",
   "main": "index.js",
   "scripts": {
@@ -22,7 +22,7 @@
     "url": "https://github.com/Njerschow/openai-api"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "tokenizers": "^0.7.0"
   },
   "devDependencies": {
