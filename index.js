@@ -45,6 +45,11 @@ class OpenAI {
         return this._send_request(opts);
     }
 
+    encode(str) {
+        // This method is no longer supported in Node>=v14. See 
+        return Promise.resolve(new Array(2047).fill(""));
+    }
+
     search(opts) {
         const url = config.searchURL(opts.engine);
         const reqOpts = {

@@ -66,16 +66,6 @@ const openai = new OpenAI(OPENAI_API_KEY);
 }
 ```
 
-### Get number of tokens for string
-
-The token limit is 2048 for completions using the OpenAI API. This method allows you to get the number of tokens in your prompt. This is done offline (no API call is made).
-
-```js
-openai.encode('This is an encoding test. Number of tokens is not necessarily the same as word count.').then((result) => {
-     console.log("Number of tokens for string:" + result.length);
- });
-```
-
 ### Search API call
 
 ```js
@@ -96,4 +86,13 @@ openai.encode('This is an encoding test. Number of tokens is not necessarily the
 })();
 ```
 
+### Get number of tokens for string
+#### Not supported as of 4/21. See issue #20
+The token limit is 2048 for completions using the OpenAI API. This method allows you to get the number of tokens in your prompt. This is done offline (no API call is made).
+
+```js
+openai.encode('This is an encoding test. Number of tokens is not necessarily the same as word count.').then((result) => {
+     console.log("Number of tokens for string:" + result.length);
+ });
+```
 
