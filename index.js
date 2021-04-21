@@ -2,8 +2,7 @@
 
 const config = require('./config'),
     axios = require('axios');
-const { ByteLevelBPETokenizer } = require('tokenizers');
-
+    
 class OpenAI {
     constructor(api_key) {
         this._api_key = api_key;
@@ -47,12 +46,8 @@ class OpenAI {
     }
 
     encode(str) {
-        return ByteLevelBPETokenizer.fromOptions({
-            vocabFile: './data/gpt2_vocab_file.json',
-            mergesFile: './data/gpt2_merges_file.txt',
-        }).then((tokenizer) => {
-            return tokenizer.encode(str)
-        })
+        // This method is no longer supported in Node>=v14. See 
+        return Promise.resolve(new Array(2047).fill(""));
     }
 
     search(opts) {
