@@ -8,11 +8,13 @@ if (!api_key) {
 }
 
 describe('basic openai api methods', function () {
-
+    this.timeout(4000);
+    
     const openai = new OpenAI(api_key);
 
-    it ('handle simple completion', function (done) {
+    it ('should handle simple completion', function (done) {
         openai.complete({
+            engine: 'ada',
             prompt: "this is a test",
             maxTokens: 5,
             temperature: 0.9,
@@ -29,24 +31,13 @@ describe('basic openai api methods', function () {
         });
     });
 
-    it ('handle search', function (done) {
+    it ('should handle search', function (done) {
         openai.search({
+            engine: 'ada',
             documents: ["White House", "hospital", "school"],
             query: "the president"
         }).then((result) => {
             expect(result).to.be.ok;
-            done();
-        })
-        .catch(err => {
-            console.error(err);
-            expect.fail();
-        })
-    });
-
-    it ('handle encoding', function (done) {
-        openai.encode('This is an encoding test. Number of tokens is not necessarily the same as word count.').then((result) => {
-            expect(result.length).to.be.ok;
-            expect(result.length).to.be.eql(18);
             done();
         })
         .catch(err => {
