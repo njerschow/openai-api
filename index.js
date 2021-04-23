@@ -1,69 +1,58 @@
 "use strict";
 
-const config = require('./config'),
-    axios = require('axios');
-    
+const config = require('./config');
+const axios = require('axios');
+
 class OpenAI {
-    constructor(api_key) {
-        this._api_key = api_key;
+  constructor(api_key) {
+    this._headers = {
+      'Authorization': `Bearer ${api_key}`,
+      'Content-Type': 'application/json'
+    }
+  }
+
+  _send_request(url, opts) {
+    delete opts.engine;
+
+    let camelToUnderscore = (key) => {
+      let result = key.replace(/([A-Z])/g, " $1");
+      return result.split(' ').join('_').toLowerCase();
     }
 
-    _safe_cast(number) {
-        return isNaN(Number(number)) ? null : Number(number);
+    const data = {};
+    for (const key in opts) {
+      data[camelToUnderscore(key)] = opts[key];
     }
 
-    _construct_parameter(name, value) {
-        return (typeof value === 'undefined' || value === null) ? null : { [name]: value };
-    }
+    return axios.post(url, data, { headers: this._headers });
+  }
+  complete(opts) {
+    const url = config.completionURL(opts.engine);
+    delete opts.engine;
 
-    _send_request(opts) {
-        const url = config.completionURL(opts.engine);
-        const reqOpts = {
-            headers: {
-                'Authorization': `Bearer ${this._api_key}`,
-                'Content-Type': 'application/json'
-            }
-        };
-        const data = Object.assign({},
-            this._construct_parameter("prompt", opts.prompt),
-            this._construct_parameter("stream", opts.stream),
-            this._construct_parameter("stop", opts.stop),
-            this._construct_parameter("max_tokens", this._safe_cast(opts.maxTokens)),
-            this._construct_parameter("temperature", this._safe_cast(opts.temperature)),
-            this._construct_parameter("top_p", this._safe_cast(opts.topP)),
-            this._construct_parameter("presence_penalty", this._safe_cast(opts.presencePenalty)),
-            this._construct_parameter("frequency_penalty", this._safe_cast(opts.frequencyPenalty)),
-            this._construct_parameter("best_of", this._safe_cast(opts.bestOf)),
-            this._construct_parameter("n", this._safe_cast(opts.n)),
-            this._construct_parameter("logprobs", this._safe_cast(opts.logprobs)),
-            this._construct_parameter("echo", opts.echo),
-        );
-        return axios.post(url, data, reqOpts);
-    }
+    return this._send_request(url, opts);
+  }
+  encode() {
+    // This method is no longer supported in Node>=v14. See
+    return Promise.resolve(new Array(2047).fill(""));
+  }
+  search(opts) {
+    const url = config.searchURL(opts.engine)
+    delete opts.engine;
+    return this._send_request(url, opts);
+  }
+  files(opts) {
 
-    complete(opts) {
-        return this._send_request(opts);
-    }
+  }
+  answers(opts) {
 
-    encode(str) {
-        // This method is no longer supported in Node>=v14. See 
-        return Promise.resolve(new Array(2047).fill(""));
-    }
+  }
+  classifications(opts) {
 
-    search(opts) {
-        const url = config.searchURL(opts.engine);
-        const reqOpts = {
-            headers: {
-                'Authorization': `Bearer ${this._api_key}`,
-                'Content-Type': 'application/json'
-            }
-        };
-        const data = {
-            documents: opts.documents,
-            query: opts.query
-        };
-        return axios.post(url, data, reqOpts);
-    }
+  }
+  engines(opts) {
+
+  }
 }
 
 module.exports = OpenAI;
