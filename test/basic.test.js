@@ -8,6 +8,8 @@ if (!api_key) {
 }
 
 describe('basic openai api methods', function () {
+  this.timeout(6000);
+
   const openai = new OpenAI(api_key);
 
   it('should handle simple completion', async function () {
@@ -29,6 +31,30 @@ describe('basic openai api methods', function () {
       documents: ["White House", "hospital", "school"],
       query: "the president"
     });
+    expect(result).to.be.ok;
+  });
+
+  it('should handle answers', async function () {
+    const result = await openai.answers({
+      "documents": ["Puppy A is happy.", "Puppy B is sad."],
+      "question": "which puppy is happy?",
+      "search_model": "ada",
+      "model": "curie",
+      "examples_context": "In 2017, U.S. life expectancy was 78.6 years.",
+      "examples": [["What is human life expectancy in the United States?", "78 years."]],
+      "max_tokens": 5,
+      "stop": ["\n", "<|endoftext|>"],
+    });
+    expect(result).to.be.ok;
+  });
+
+  it('should handle engines', async function () {
+    const result = await openai.engines();
+    expect(result).to.be.ok;
+  });
+
+  it('should handle engine', async function () {
+    const result = await openai.engine('ada');
     expect(result).to.be.ok;
   });
 

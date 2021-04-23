@@ -20,6 +20,9 @@ module.exports = {
   enginesUrl() {
     return `${OPEN_AI_URL}/engines`;
   },
+  engineUrl(engine) {
+    return `${OPEN_AI_URL}/engines/${engine}`;
+  },
   classificationsUrl() {
     return `${OPEN_AI_URL}/classifications`
   },

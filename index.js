@@ -5,15 +5,10 @@ const axios = require('axios');
 
 class OpenAI {
   constructor(api_key) {
-    this._headers = {
-      'Authorization': `Bearer ${api_key}`,
-      'Content-Type': 'application/json'
-    }
+    this._api_key = api_key;
   }
 
-  _send_request(url, opts) {
-    delete opts.engine;
-
+  _send_request(url, method, opts = {}) {
     let camelToUnderscore = (key) => {
       let result = key.replace(/([A-Z])/g, " $1");
       return result.split(' ').join('_').toLowerCase();
@@ -24,34 +19,48 @@ class OpenAI {
       data[camelToUnderscore(key)] = opts[key];
     }
 
-    return axios.post(url, data, { headers: this._headers });
+    return axios({
+      url,
+      headers: {
+        'Authorization': `Bearer ${this._api_key}`,
+        'Content-Type': 'application/json'
+      },
+      data: Object.keys(data).length ? data : '',
+      method,
+    });
   }
+
   complete(opts) {
     const url = config.completionURL(opts.engine);
     delete opts.engine;
 
-    return this._send_request(url, opts);
+    return this._send_request(url, 'post', opts);
   }
+
   encode() {
     // This method is no longer supported in Node>=v14. See
     return Promise.resolve(new Array(2047).fill(""));
   }
+
   search(opts) {
     const url = config.searchURL(opts.engine)
     delete opts.engine;
-    return this._send_request(url, opts);
+    return this._send_request(url, 'post', opts);
   }
-  files(opts) {
 
-  }
   answers(opts) {
-
+    const url = config.answersUrl();
+    return this._send_request(url, 'post', opts);
   }
-  classifications(opts) {
 
+  engines() {
+    const url = config.enginesUrl();
+    return this._send_request(url, 'get')
   }
-  engines(opts) {
 
+  engine(engine) {
+    const url = config.engineUrl(engine);
+    return this._send_request(url, 'get');
   }
 }
 
