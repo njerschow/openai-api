@@ -16,6 +16,32 @@
     "node"
   ],
   "author": "Nikita Jerschow",
+  "contributors": [
+     {
+       "url" : "https://github.com/Njerschow",
+     },
+     {
+       "url" : "https://github.com/uvafan",
+     },
+     {
+       "url" : "https://github.com/AlbertGozzi",
+     },
+     {
+       "url" : "https://github.com/LauraWartschinski",
+     },
+     {
+       "url" : "https://github.com/kian-g",
+     },
+     {
+       "url" : "https://github.com/timconnorz",
+     },
+     {
+       "url" : "https://github.com/schnerd",
+     },
+     {
+       "url" : "https://github.com/anonrose",
+     },
+  ],
   "license": "ISC",
   "repository": {
     "type": "git",
