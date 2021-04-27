@@ -3,7 +3,7 @@ declare module 'openai-api' {
         engine: string;
         prompt?: string;
         maxTokens?: number;
-        tempature?: number;
+        temperature?: number;
         topP?: number;
         n?: number;
         stream?: boolean;
@@ -17,11 +17,13 @@ declare module 'openai-api' {
     }
 
     export interface Completion {
-        id: string
-        object: string
-        created: number
-        model: string
-        choices: Choice[]
+        data: {
+            id: string
+            object: string
+            created: number
+            model: string
+            choices: Choice[]
+        }
       }
       
     export interface Choice {
