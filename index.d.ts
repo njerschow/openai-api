@@ -61,5 +61,5 @@ declare module 'openai-api' {
         encode(str: string): number[];
         search(opts: SearchOpts): Promise<Search>;
     }
-    export default OpenAI;
+    export = OpenAI;
 }
