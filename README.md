@@ -43,7 +43,7 @@ const openai = new OpenAI(OPENAI_API_KEY);
         stream: false,
         stop: ['\n', "testing"]
     });
-            
+
     console.log(gptResponse.data);
 })();
 ```
@@ -75,7 +75,37 @@ const openai = new OpenAI(OPENAI_API_KEY);
         documents: ["White House", "hospital", "school"],
         query: "the president"
     });
-            
+
+    console.log(gptResponse.data);
+})();
+```
+
+
+### Answers API call
+
+```js
+(async () => {
+    const gptResponse = await openai.answers({
+      "documents": ["Puppy A is happy.", "Puppy B is sad."],
+      "question": "which puppy is happy?",
+      "search_model": "ada",
+      "model": "curie",
+      "examples_context": "In 2017, U.S. life expectancy was 78.6 years.",
+      "examples": [["What is human life expectancy in the United States?", "78 years."]],
+      "max_tokens": 5,
+      "stop": ["\n", "<|endoftext|>"],
+    });
+
+    console.log(gptResponse.data);
+})();
+```
+
+### Engines API call
+
+```js
+(async () => {
+    const gptResponse = await openai.engines();
+
     console.log(gptResponse.data);
 })();
 ```

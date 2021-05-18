@@ -16,13 +16,40 @@
     "node"
   ],
   "author": "Nikita Jerschow",
+  "contributors": [
+     {
+       "url" : "https://github.com/Njerschow",
+     },
+     {
+       "url" : "https://github.com/uvafan",
+     },
+     {
+       "url" : "https://github.com/AlbertGozzi",
+     },
+     {
+       "url" : "https://github.com/LauraWartschinski",
+     },
+     {
+       "url" : "https://github.com/kian-g",
+     },
+     {
+       "url" : "https://github.com/timconnorz",
+     },
+     {
+       "url" : "https://github.com/schnerd",
+     },
+     {
+       "url" : "https://github.com/anonrose",
+     },
+  ],
   "license": "ISC",
   "repository": {
     "type": "git",
     "url": "https://github.com/Njerschow/openai-api"
   },
   "dependencies": {
-    "axios": "^0.21.1"
+    "axios": "^0.21.1",
+    "dotenv": "^8.2.0"
   },
   "devDependencies": {
     "chai": "^4.3.4",
