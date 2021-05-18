@@ -8,7 +8,7 @@ if (!api_key) {
 }
 
 describe('basic openai api methods', function () {
-  this.timeout(6000);
+  this.timeout(8000);
 
   const openai = new OpenAI(api_key);
 
