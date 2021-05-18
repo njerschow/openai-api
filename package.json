@@ -1,6 +1,6 @@
 {
   "name": "openai-api",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "A tiny client module for the openAI API",
   "main": "index.js",
   "scripts": {
@@ -40,6 +40,9 @@
     },
     {
       "url": "https://github.com/anonrose"
+    },
+    {
+      "url": "https://github.com/Cormanz"
     }
   ],
   "license": "ISC",
