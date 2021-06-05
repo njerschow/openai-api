@@ -13,6 +13,7 @@ declare module 'openai-api' {
         presencePenalty?: number;
         frequencyPenalty?: number;
         bestOf?: number;
+        user?: string;
         logitBias?: { [ token: string ]: number }
     }
 
