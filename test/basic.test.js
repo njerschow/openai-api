@@ -48,6 +48,21 @@ describe('basic openai api methods', function () {
     expect(result).to.be.ok;
   });
 
+  it("should handle classification", async function () {
+    const result = await openai.classification({
+      examples: [
+        ["A happy moment", "Positive"],
+        ["I am sad.", "Negative"],
+        ["I am feeling awesome", "Positive"],
+      ],
+      labels: ["Positive", "Negative", "Neutral"],
+      query: "It is a raining day :(",
+      search_model: "ada",
+      model: "curie",
+    });
+    expect(result).to.be.ok;
+  });
+
   it('should handle engines', async function () {
     const result = await openai.engines();
     expect(result).to.be.ok;

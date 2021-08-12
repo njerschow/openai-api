@@ -100,6 +100,26 @@ const openai = new OpenAI(OPENAI_API_KEY);
 })();
 ```
 
+### Classification API call
+
+```
+(async () => {
+  const gptResponse = await openai.classification({
+    "examples": [
+      ["A happy moment", "Positive"],
+      ["I am sad.", "Negative"],
+      ["I am feeling awesome", "Positive"]
+    ],
+    "labels": ["Positive", "Negative", "Neutral"],
+    "query": "It is a raining day :(",
+    "search_model": "ada",
+    "model": "curie"
+  });
+
+  console.log(gptResponse.data);
+})();
+```
+
 ### Engines API call
 
 ```js
