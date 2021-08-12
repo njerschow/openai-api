@@ -53,6 +53,11 @@ class OpenAI {
     return this._send_request(url, 'post', opts);
   }
 
+  classification(opts) {
+    const url = config.classificationsUrl();
+    return this._send_request(url, "post", opts);
+  }
+
   engines() {
     const url = config.enginesUrl();
     return this._send_request(url, 'get')
