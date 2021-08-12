@@ -102,7 +102,7 @@ const openai = new OpenAI(OPENAI_API_KEY);
 
 ### Classification API call
 
-```
+```js
 (async () => {
   const gptResponse = await openai.classification({
     "examples": [
