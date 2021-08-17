@@ -1,5 +1,5 @@
 const DEFAULT_ENGINE = 'davinci';
-const ENGINE_LIST = ['ada', 'babbage', 'curie', 'davinci', 'davinci-instruct-beta', 'curie-instruct-beta', 'content-filter-alpha-c4'];
+const ENGINE_LIST = ['ada', 'babbage', 'curie', 'davinci', 'davinci-codex', 'davinci-instruct-beta', 'curie-instruct-beta', 'content-filter-alpha-c4'];
 const ORIGIN = 'https://api.openai.com';
 const API_VERSION = 'v1';
 const OPEN_AI_URL = `${ORIGIN}/${API_VERSION}`
