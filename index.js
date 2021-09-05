@@ -3,6 +3,8 @@
 const config = require('./config');
 const axios = require('axios');
 
+const DEFAULT_ENGINE = "davinci";
+
 class OpenAI {
   constructor(api_key) {
     this._api_key = api_key;
@@ -31,7 +33,7 @@ class OpenAI {
   }
 
   complete(opts) {
-    const url = config.completionURL(opts.engine);
+    const url = config.completionURL(opts.engine || DEFAULT_ENGINE);
     delete opts.engine;
 
     return this._send_request(url, 'post', opts);
@@ -43,7 +45,7 @@ class OpenAI {
   }
 
   search(opts) {
-    const url = config.searchURL(opts.engine)
+    const url = config.searchURL(opts.engine || DEFAULT_ENGINE)
     delete opts.engine;
     return this._send_request(url, 'post', opts);
   }
