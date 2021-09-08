@@ -1,5 +1,5 @@
 declare module 'openai-api' {
-    interface CompletionOpts {
+    export interface CompletionOpts {
         engine: string;
         prompt?: string;
         maxTokens?: number;
