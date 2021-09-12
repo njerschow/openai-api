@@ -141,4 +141,4 @@ openai.encode('This is an encoding test. Number of tokens is not necessarily the
 ```
 
 -------
-Powered by Obelisk.ooo
+Powered by [Obelisk.ooo](https://obelisk.ooo)
