@@ -7,6 +7,9 @@ module.exports = {
   completionURL(engine) {
     return `${OPEN_AI_URL}/engines/${engine}/completions`;
   },
+  fineTunedCompletionURL() {
+    return `${OPEN_AI_URL}/completions`;
+  },
   searchURL(engine) {
     return `${OPEN_AI_URL}/engines/${engine}/search`;
   },

@@ -33,7 +33,9 @@ class OpenAI {
   }
 
   complete(opts) {
-    const url = config.completionURL(opts.engine || DEFAULT_ENGINE);
+    const url = opts.model
+      ? config.fineTunedCompletionURL()
+      : config.completionURL(opts.engine || DEFAULT_ENGINE);
     delete opts.engine;
 
     return this._send_request(url, 'post', opts);
