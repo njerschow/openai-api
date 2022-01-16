@@ -1,6 +1,7 @@
 declare module 'openai-api' {
     export interface CompletionOpts {
-        engine: string;
+        model: string;
+        engine?: string;
         prompt?: string;
         maxTokens?: number;
         temperature?: number;
