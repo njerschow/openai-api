@@ -86,8 +86,20 @@ describe('basic openai api methods', function () {
   });
 
   it('should return a default value from the encode function', async function () {
-    const result = await openai.encode('this is a string')
+    const result = await openai.encode('this is a string');
     expect(result).to.be.ok;
     expect(result.length).to.be.eql(2047);
+  });
+
+  it('should handle embeddings', async function () {
+    const result = await openai.embeddings({
+      engine: 'text-similarity-ada-001',
+      input: [
+        "A happy moment",
+        "I am sad.",
+        "I am feeling awesome"
+      ]
+    });
+    expect(result).to.be.ok;
   });
 });
