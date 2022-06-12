@@ -32,7 +32,7 @@ class OpenAI {
     });
   }
 
-  _check_embeddings_engine_name(engine) {
+  _check_embeddings_engine_name(model) {
     const availableEngineNames = [
       'text-similarity-ada-001',
       'text-similarity-babbage-001',
@@ -52,7 +52,7 @@ class OpenAI {
       'code-search-babbage-text-001',
     ];
 
-    if (!availableEngineNames.includes(engine)) {
+    if (!availableEngineNames.includes(model)) {
       throw new Error(`Unknown engine name for embeddings. Available engine names are ${availableEngineNames}`);
     }
   }
@@ -96,9 +96,9 @@ class OpenAI {
   }
 
   embeddings(opts) {
-    this._check_embeddings_engine_name(opts.engine);
+    this._check_embeddings_engine_name(opts.model);
 
-    const url = config.embeddingsUrl(opts.engine);
+    const url = config.embeddingsUrl(opts.model);
     return this._send_request(url, 'post', opts);
   }
 }
