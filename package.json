@@ -1,6 +1,6 @@
 {
   "name": "@dasheck0/openai-api",
-  "version": "1.3.3",
+  "version": "1.4.0",
   "description": "A tiny client module for the openAI API",
   "private": false,
   "main": "dist/index.js",
