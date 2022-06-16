@@ -1,5 +1,4 @@
-import { ClassificationOpts } from './index.d';
-declare module 'openai-api' {
+declare module 'dasheck0/openai-api' {
     export interface CompletionOpts {
         model: string;
         prompt?: string;
@@ -159,21 +158,21 @@ declare module 'openai-api' {
     class OpenAI {
         constructor(api: string);
         
-        async complete(opts: CompletionOpts): Promise<Completion>;
+        complete(opts: CompletionOpts): Promise<Completion>;
         
         encode(str: string): number[];
         
-        async search(opts: SearchOpts): Promise<Search>;
+        search(opts: SearchOpts): Promise<Search>;
         
-        async answers(opts: AnswerOpts): Promise<Answer>;
+        answers(opts: AnswerOpts): Promise<Answer>;
         
-        async classification(opts: ClassificationOpts): Promise<Classification>;
+        classification(opts: ClassificationOpts): Promise<Classification>;
 
-        async engines(): Promise<EngineData>;
+        engines(): Promise<EngineData>;
 
-        async engine(): Promise<Engine>;
+        engine(): Promise<Engine>;
 
-        async embeddings(): Promise<Embedding>;
+        embeddings(): Promise<Embedding>;
     }
 
     export default OpenAI;
