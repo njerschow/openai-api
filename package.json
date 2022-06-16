@@ -1,5 +1,5 @@
 {
-  "name": "openai-api",
+  "name": "@dasheck0/openai-api",
   "version": "1.3.3",
   "description": "A tiny client module for the openAI API",
   "private": false,
