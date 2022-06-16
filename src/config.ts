@@ -30,6 +30,6 @@ export function answersUrl(): string {
   return `${OPEN_AI_URL}/answers`;
 }
 
-export function embeddingsUrl(engine: string): string {
-  return `${OPEN_AI_URL}/engines/${engine}/embeddings`;
+export function embeddingsUrl(): string {
+  return `${OPEN_AI_URL}/embeddings`;
 }

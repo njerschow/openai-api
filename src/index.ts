@@ -139,7 +139,7 @@ export interface EngineData {
 
 export interface EmbeddingOpts {
   model: string;
-  input: string;
+  input: string | string[];
   user?: string;
 }
 
@@ -165,23 +165,13 @@ export default class OpenAI {
   constructor(private readonly apiKey: string) {}
 
   _send_request(url: string, method: string, opts: any = {}) {
-    let camelToUnderscore = (key: string) => {
-      let result = key.replace(/([A-Z])/g, " $1");
-      return result.split(" ").join("_").toLowerCase();
-    };
-
-    const data: any = {};
-    for (const key in opts) {
-      data[camelToUnderscore(key)] = opts[key];
-    }
-
     return axios({
       url,
       headers: {
         Authorization: `Bearer ${this.apiKey}`,
         "Content-Type": "application/json",
       },
-      data: Object.keys(data).length ? data : "",
+      data: Object.keys(opts).length ? opts : "",
       method,
     });
   }
@@ -255,4 +245,3 @@ export default class OpenAI {
     return this._send_request(url, "post", opts);
   }
 }
-
