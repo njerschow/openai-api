@@ -136,7 +136,7 @@ Documentation: [https://beta.openai.com/docs/api-reference/embeddings](https://b
 ```js
 (async () => {
   const gptResponse = await openai.embeddings({
-    "engine": "test-similarity-babbage-001",
+    "engine": "text-similarity-babbage-001",
     "input": [
       "A happy moment",
       "I am sad.",
