@@ -1,5 +1,7 @@
 # openai-api
 
+🚨 This is a fork of the original project located at https://github.com/Njerschow/openai-api. I contributed to this project. However, it seems that the original maintainer is unresponsive. So I decided to re-release this package with an apropriate scope. Thanks https://github.com/Njerschow for your work so far! 🚨
+
 ## Overview
 This package is a tiny node wrapper for the openAI API, if you find any issue please feel free to message me or open a PR :).
 
