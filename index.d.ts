@@ -67,11 +67,52 @@ declare module 'openai-api' {
         embedding: number[];
     }
 
+    export interface ChatOpts {
+        model: string;
+        message: ChatMessage[];
+        max_tokens?: number;
+        temperature?: number;
+        top_p?: number;
+        n?: number;
+        stream?: boolean;
+        logprobs?: number;
+        echo?: boolean;
+        stop?: string | string[];
+        presence_penalty?: number;
+        frequency_penalty?: number;
+        user?: string;
+        logit_bias?: { [token: string]: number; };
+    }
+
+    export interface ChatResponse {
+        data: {
+            id: string;
+            object: string;
+            created: number;
+            model: string;
+            usage: { prompt_tokens: number, completion_tokens: number, total_tokens: number };
+            choices: ChatChoice[];
+        };
+    }
+
+    export interface ChatChoice {
+        message: ChatMessage[];
+        index: number;
+        logprobs: any;
+        finish_reason: string;
+    }
+
+    export interface ChatMessage {
+        role: string;
+        content: string;
+    }
+
     class OpenAI {
         constructor(api: string);
         complete(opts: CompletionOpts): Promise<Completion>;
         encode(str: string): number[];
         search(opts: SearchOpts): Promise<Search>;
+        chat(opts: ChatOpts): Promise<ChatResponse>;
     }
 
     export default OpenAI;

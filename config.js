@@ -27,5 +27,8 @@ module.exports = {
   },
   embeddingsUrl(engine) {
     return `${OPEN_AI_URL}/engines/${engine}/embeddings`;
+  },
+  chatURL() {
+    return `${OPEN_AI_URL}/chat/completions`;
   }
 };

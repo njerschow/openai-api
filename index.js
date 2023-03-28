@@ -101,6 +101,11 @@ class OpenAI {
     const url = config.embeddingsUrl(opts.engine);
     return this._send_request(url, 'post', opts);
   }
+
+  chat(opts) {
+    const url = config.chatURL();
+    return this._send_request(url, 'post', opts);
+  }
 }
 
 module.exports = OpenAI;
